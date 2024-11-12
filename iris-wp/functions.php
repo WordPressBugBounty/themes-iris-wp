@@ -128,14 +128,16 @@ iris_wp_theme()
 			'width'       => 150,
 			'height'      => 70,
 		)
-	)
-	->register_menus(
-		array(
-			'header-menu' => esc_html__( 'Header Menu', 'iris-wp' ),
-			'footer-menu' => esc_html__( 'Footer Menu', 'iris-wp' ),
-		)
 	);
 
+add_action('after_setup_theme', function() {
+    iris_wp_theme()->register_menus(
+        array(
+            'header-menu' => esc_html__( 'Header Menu', 'iris-wp' ),
+            'footer-menu' => esc_html__( 'Footer Menu', 'iris-wp' ),
+        )
+    );
+},1);
 if ( ! apply_filters( 'kubio_is_enabled', false ) ) {
 	iris_wp_assets()
 		->registerTemplateScript(

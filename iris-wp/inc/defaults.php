@@ -141,43 +141,44 @@ $iris_wp_theme_divider_style = array(
 	'tilt'         => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none">	<path class="svg-white-bg" d="M-0 0L1000 0 1000 100z"/></svg>',
 );
 
-$iris_wp_gradients                     = array(
-	'front_header_default_overlay' =>
+$front_header_default_overlay = array(
+	'name'  => 'front_header_default_overlay',
+	'angle' => '90',
+	'steps' =>
 		array(
-			'name'  => 'front_header_default_overlay',
-			'angle' => '90',
-			'steps' =>
+			0 =>
 				array(
-					0 =>
-						array(
-							'color'    => 'rgba(250, 250, 250, 1)',
-							'position' => '46',
-						),
-					1 =>
-						array(
-							'color'    => 'rgba(250, 250, 250, 0)',
-							'position' => '86',
-						),
+					'color'    => 'rgba(250, 250, 250, 1)',
+					'position' => '46',
+				),
+			1 =>
+				array(
+					'color'    => 'rgba(250, 250, 250, 0)',
+					'position' => '86',
 				),
 		),
-	'inner_header_default_overlay'  =>
+);
+
+$inner_header_default_overlay = array(
+	'name'  => 'inner_header_default_overlay',
+	'angle' => '90',
+	'steps' =>
 		array(
-			'name'  => 'inner_header_default_overlay',
-			'angle' => '90',
-			'steps' =>
+			0 =>
 				array(
-					0 =>
-						array(
-							'color'    => 'rgba(250, 250, 250, 1)',
-							'position' => '46',
-						),
-					1 =>
-						array(
-							'color'    => 'rgba(250, 250, 250, 0)',
-							'position' => '86',
-						),
+					'color'    => 'rgba(250, 250, 250, 1)',
+					'position' => '46',
+				),
+			1 =>
+				array(
+					'color'    => 'rgba(250, 250, 250, 0)',
+					'position' => '86',
 				),
 		),
+);
+
+
+$iris_wp_gradients = array(
 	'night_fade'  =>
 		array(
 			'name'  => 'night_fade',
@@ -232,13 +233,12 @@ $iris_wp_gradients                     = array(
 						),
 				),
 		),
-
 );
-$iris_wp_theme_action_button           = __( 'Start Today', 'iris-wp' );
-$iris_wp_theme_action_button_secondary = __( 'Contact us', 'iris-wp' );
+$iris_wp_theme_action_button           = 'Start Today';
+$iris_wp_theme_action_button_secondary =  'Contact us';
 
-$iris_wp_theme_click_pen_to_edit_title = __( 'Simplify<span style="color:rgba(var(--kubio-color-2),1)" class="kubio-has-inline-color">.</span><br>Build<span style="color:rgba(var(--kubio-color-2),1)" class="kubio-has-inline-color">.</span> Impress<span style="color:rgba(var(--kubio-color-2),1)" class="kubio-has-inline-color">.</span>', 'iris-wp' );
-$iris_wp_lorem_ipsum                   = __('Unlock your full potential and transform the way you work with our innovative platform. Try it today and experience the difference firsthand.', 'iris-wp');
+$iris_wp_theme_click_pen_to_edit_title = 'Simplify<span style="color:rgba(var(--kubio-color-2),1)" class="kubio-has-inline-color">.</span><br>Build<span style="color:rgba(var(--kubio-color-2),1)" class="kubio-has-inline-color">.</span> Impress<span style="color:rgba(var(--kubio-color-2),1)" class="kubio-has-inline-color">.</span>';
+$iris_wp_lorem_ipsum                   = 'Unlock your full potential and transform the way you work with our innovative platform. Try it today and experience the difference firsthand.';
 
 
 return array(
@@ -339,7 +339,7 @@ return array(
 									'color'            => array(
 										'value' => 'rgba(0,0,0,0.6)',
 									),
-									'gradient'         => $iris_wp_gradients['front_header_default_overlay'],
+									'gradient'         => $front_header_default_overlay,
 									'gradient_opacity' => 100,
 									'shape'            =>
 										array(
@@ -562,7 +562,7 @@ return array(
 									'color'            => array(
 										'value' => 'rgba(0,0,0,0.6)',
 									),
-									'gradient'         => $iris_wp_gradients['inner_header_default_overlay'],
+									'gradient'         => $inner_header_default_overlay,
 									'gradient_opacity' => 100,
 									'shape'            =>
 										array(
@@ -688,30 +688,5 @@ return array(
 	'blog_show_post_thumb_placeholder'  => true,
 	'blog_posts_per_row'                => 1,
 	'blog_enable_masonry'               => true,
-
-	'front_page_designs'                => array(
-		array(
-			'name'    => __( 'Modern', 'iris-wp' ),
-			'index'   => 1,
-			'preview' => 'front-page-1.jpg',
-		),
-
-		array(
-			'name'    => __( 'Fullscreen', 'iris-wp' ),
-			'index'   => 2,
-			'preview' => 'front-page-2.jpg',
-		),
-
-		array(
-			'name'    => __( 'Classic', 'iris-wp' ),
-			'index'   => 3,
-			'preview' => 'front-page-3.jpg',
-		),
-
-		array(
-			'name'    => __( '', 'iris-wp' ),
-			'index'   => 4,
-			'preview' => 'admin/ai-icon.svg',
-		),
-	),
+    
 );

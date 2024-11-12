@@ -43,7 +43,7 @@ class Title extends ComponentBase {
 
 				),
 				"{$prefix}localProps.content" => array(
-					'default' => Defaults::get( 'edit_this_text_in_customizer' ),
+					'default' => __( 'Simplify<span style="color:rgba(var(--kubio-color-2),1)" class="kubio-has-inline-color">.</span><br>Build<span style="color:rgba(var(--kubio-color-2),1)" class="kubio-has-inline-color">.</span> Impress<span style="color:rgba(var(--kubio-color-2),1)" class="kubio-has-inline-color">.</span>', 'iris-wp' ),
 					'control' => array(
 						'label'       => Translations::get( 'title' ),
 						'type'        => 'input',

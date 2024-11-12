@@ -114,7 +114,6 @@ return array (
                   'source' => 
                   array (
                     'type' => 'image',
-                    'url' => 'https://wps.iconvert.pro/wp2/kubio-themes/iris-wp-default/wp-content/uploads/2024/06/hero-new1.jpg',
                   ),
                   'size' => 'cover',
                   'position' => 
@@ -347,7 +346,7 @@ return array (
       array (
         'link' => 
         array (
-          'value' => 'https://wps.iconvert.pro/wp2/kubio-themes/iris-wp-default/#contact',
+          'value' => '#contact',
           'typeOpenLink' => 'sameWindow',
           'noFollow' => false,
           'lightboxMedia' => '',
@@ -407,7 +406,6 @@ return array (
                   'source' => 
                   array (
                     'type' => 'image',
-                    'url' => 'https://wps.iconvert.pro/wp2/kubio-themes/iris-wp-default/wp-content/uploads/2024/06/hero-new1.jpg',
                   ),
                   'size' => 'cover',
                   'position' => 
