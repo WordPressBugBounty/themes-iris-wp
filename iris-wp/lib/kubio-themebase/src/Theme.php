@@ -10,18 +10,25 @@ use ColibriWP\Theme\Translations;
 
 class Theme extends ThemeBase {
 
+    public function __construct() {
+        parent::__construct();
+
+        ReactAssetsRegistry::load();
+        AiOnboarding::load();
+    }
+
     private $state = array();
 
     public function afterSetup() {
         parent::afterSetup();
         add_action( 'admin_enqueue_scripts', array( $this, 'enqueueThemeInfoPageScripts' ), 20 );
-        add_action('customize_controls_print_footer_scripts', array( $this, 'addKubioOnboarding' ), 20 );
+		//add_action( 'customize_controls_print_footer_scripts', array( $this, 'addKubioOnboarding' ), 20 );
 
         add_action(
             'wp_ajax_kubio_onboarding_disable_notice',
             function () {
-                check_ajax_referer('kubio_onboarding_disable_notice_nonce');
-                update_option( "kubio-onboarding-notice-disabled", true );
+				check_ajax_referer( 'kubio_onboarding_disable_notice_nonce' );
+				update_option( 'kubio-onboarding-notice-disabled', true );
             }
         );
     }
@@ -77,6 +84,9 @@ class Theme extends ThemeBase {
             return false;
         }
 
+		if ( Flags::get( 'with_starter_content', false ) ) {
+			return false;
+		}
         if ( $pagenow === 'update.php' ) {
             return false;
         }
@@ -239,6 +249,9 @@ class Theme extends ThemeBase {
 
         foreach ( $default_keys as $default_key ) {
             foreach ( $mods_keys as $mod_key ) {
+				if($mod_key === 0) {
+					continue;
+				}
                 if ( in_array( $mod_key, $default_blog_keys) || strpos( $mod_key, "{$default_key}." ) === 0 ) {
                     Flags::set( 'theme_customized', true );
 

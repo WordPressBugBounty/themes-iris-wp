@@ -2361,7 +2361,30 @@ window.Colibri = _kubio_scripts_src_base__WEBPACK_IMPORTED_MODULE_0__.ColibriFro
       var paddingTop = this.overlapTarget.offsetHeight + 'px !important;';
       this.$sheet.innerHTML = '.h-navigation-padding{padding-top:' + paddingTop + '}';
     },
-    startSticky: function startSticky(data) {},
+    startSticky: function startSticky(data) {
+      var self = this;
+      this.$element.data('stickData', data);
+      this.$element.fixTo('body', data); // console.warn('move ->', this.opts);
+
+      this.opts.sticky.prepare && this.prepareSticky();
+      this.$element.on('fixto-added.sticky', function () {
+        self.$element.attr('data-in-sticky-state', true);
+      });
+      this.$element.on('fixto-add.sticky', function () {
+        self.clearResetTimeouts();
+        var navOuter = self.navigationWrapper();
+        navOuter.css('animation-duration', '');
+        navOuter.css('min-height', navOuter[0].offsetHeight);
+      });
+      this.$element.on('fixto-removed.sticky', function () {
+        self.$element.removeAttr('data-in-sticky-state');
+        self.resetParentHeight();
+      });
+      $(window).on('resize.sticky orientationchange.sticky', function () {
+        setTimeout(self.resizeCallback.bind(self), 50);
+      });
+      $(window).trigger('resize.sticky');
+    },
     stopSticky: function stopSticky() {
       var instance = this.fixToInstance();
 

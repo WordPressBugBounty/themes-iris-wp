@@ -73,8 +73,8 @@ class PluginsManager {
                     Flags::set('start_source', $source);
                 }
 
-				if ($source && strpos($source,  "customizer-sidebar") === 0) {
-					Flags::set('import_design', true);
+				if ( $source && strpos( $source, 'customizer-sidebar' ) === 0 && !Flags::get( 'with_starter_content', false ) ) {
+					Flags::set( 'import_design', true );
 				}
 				
 				if ( $slug && ( $path = $this->getPluginData( "{$slug}.plugin_path" ) ) ) {

@@ -555,13 +555,16 @@ domready(function () {
 
 
 domready__WEBPACK_IMPORTED_MODULE_1___default()(function () {
-  if (window !== top) {
-    setTimeout(function () {
+  /*
+  Not knowing what this does
+  Commented to fix this: https://mantis.iconvert.pro/view.php?id=55465
+   if (window !== top) {
+    setTimeout(() => {
       document.querySelector("body").style.transform = "translateZ(0)";
       window.scrollTo(0, 0);
     }, 100);
   }
-
+  */
   var settingsInActiveRules = [];
   settingsInActiveRules.concat(_.keys(colibri_JS_OUTPUT_CONTROLS)).forEach(function (control_id) {
     wp.customize(control_id, function (value) {
